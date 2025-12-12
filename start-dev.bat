@@ -1,0 +1,3 @@
+@echo off
+echo Starting CrediMatch development server...
+call npm run dev
