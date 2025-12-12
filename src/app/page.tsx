@@ -1,7 +1,5 @@
 'use client'
 
-import Link from 'next/link'
-
 export default function HomePage() {
   const features = [
     {
@@ -75,22 +73,22 @@ export default function HomePage() {
           </div>
           
           <div style={{ display: 'flex', gap: '1rem' }}>
-            <Link href="/auth/login" style={{
+            <a href="/auth/login" style={{
               padding: '0.5rem 1rem',
               background: 'transparent',
               border: '1px solid rgba(255, 255, 255, 0.2)',
               color: 'white',
               textDecoration: 'none',
               borderRadius: '0.5rem'
-            }}>Login</Link>
-            <Link href="/auth/signup" style={{
+            }}>Login</a>
+            <a href="/auth/signup" style={{
               padding: '0.5rem 1rem',
               background: 'linear-gradient(45deg, #06b6d4, #8b5cf6)',
               border: 'none',
               color: 'white',
               textDecoration: 'none',
               borderRadius: '0.5rem'
-            }}>Get Started</Link>
+            }}>Get Started</a>
           </div>
         </div>
       </nav>
@@ -130,7 +128,7 @@ export default function HomePage() {
             marginBottom: '4rem',
             flexWrap: 'wrap'
           }}>
-            <Link href="/client/dashboard" style={{
+            <a href="/client/dashboard" style={{
               padding: '1rem 2rem',
               background: 'linear-gradient(45deg, #06b6d4, #8b5cf6)',
               color: 'white',
@@ -143,8 +141,8 @@ export default function HomePage() {
               gap: '0.5rem'
             }}>
               I Need Talent →
-            </Link>
-            <Link href="/freelancer/dashboard" style={{
+            </a>
+            <a href="/freelancer/dashboard" style={{
               padding: '1rem 2rem',
               background: 'rgba(255, 255, 255, 0.05)',
               color: 'white',
@@ -158,7 +156,7 @@ export default function HomePage() {
               gap: '0.5rem'
             }}>
               I&apos;m a Freelancer →
-            </Link>
+            </a>
           </div>
 
           {/* Stats */}
@@ -296,7 +294,7 @@ export default function HomePage() {
             </div>
             
             <div style={{ display: 'flex', gap: '1rem', justifyContent: 'center', flexWrap: 'wrap' }}>
-              <Link href="/skill-heatmap" style={{
+              <a href="/skill-heatmap" style={{
                 padding: '1rem 2rem',
                 background: 'linear-gradient(45deg, #06b6d4, #8b5cf6)',
                 color: 'white',
@@ -305,8 +303,8 @@ export default function HomePage() {
                 fontWeight: 'bold'
               }}>
                 Explore 3D Skill Map
-              </Link>
-              <Link href="/auth/login" style={{
+              </a>
+              <a href="/auth/login" style={{
                 padding: '1rem 2rem',
                 background: 'rgba(255, 255, 255, 0.05)',
                 color: 'white',
@@ -316,7 +314,7 @@ export default function HomePage() {
                 fontWeight: 'bold'
               }}>
                 Login to Demo
-              </Link>
+              </a>
             </div>
           </div>
         </div>
