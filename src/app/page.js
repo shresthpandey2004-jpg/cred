@@ -1,5 +1,3 @@
-'use client'
-
 export default function HomePage() {
   const features = [
     {
@@ -155,7 +153,7 @@ export default function HomePage() {
               alignItems: 'center',
               gap: '0.5rem'
             }}>
-              I&apos;m a Freelancer →
+              I'm a Freelancer →
             </a>
           </div>
 
