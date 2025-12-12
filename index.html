@@ -1,0 +1,365 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CrediMatch - AI-Powered Freelancer Hiring OS</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: system-ui, -apple-system, sans-serif;
+            background: linear-gradient(135deg, #0f0f23 0%, #1a1a2e 50%, #16213e 100%);
+            color: white;
+            min-height: 100vh;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+        
+        .nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 4rem;
+            padding: 1rem 2rem;
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(10px);
+            border-radius: 1rem;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-size: 1.5rem;
+            font-weight: bold;
+        }
+        
+        .logo-icon {
+            width: 2rem;
+            height: 2rem;
+            background: linear-gradient(45deg, #06b6d4, #8b5cf6);
+            border-radius: 0.5rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .gradient-text {
+            background: linear-gradient(45deg, #06b6d4, #8b5cf6, #ec4899);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        
+        .hero {
+            text-align: center;
+            margin-bottom: 5rem;
+        }
+        
+        .hero h1 {
+            font-size: clamp(3rem, 8vw, 6rem);
+            font-weight: bold;
+            margin-bottom: 2rem;
+            line-height: 1.1;
+        }
+        
+        .hero p {
+            font-size: 1.25rem;
+            color: #94a3b8;
+            max-width: 800px;
+            margin: 0 auto 3rem;
+            line-height: 1.6;
+        }
+        
+        .buttons {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            flex-wrap: wrap;
+            margin-bottom: 4rem;
+        }
+        
+        .btn {
+            padding: 1rem 2rem;
+            border-radius: 1rem;
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 1.1rem;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            transition: transform 0.3s ease;
+        }
+        
+        .btn:hover {
+            transform: translateY(-2px);
+        }
+        
+        .btn-primary {
+            background: linear-gradient(45deg, #06b6d4, #8b5cf6);
+            color: white;
+            border: none;
+        }
+        
+        .btn-secondary {
+            background: rgba(255, 255, 255, 0.05);
+            color: white;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+        
+        .stats {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem;
+            margin-bottom: 5rem;
+        }
+        
+        .stat-card {
+            padding: 2rem;
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 1rem;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            text-align: center;
+        }
+        
+        .stat-value {
+            font-size: 2rem;
+            font-weight: bold;
+            margin-bottom: 0.5rem;
+        }
+        
+        .stat-label {
+            font-size: 0.9rem;
+            color: #94a3b8;
+        }
+        
+        .features {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+            margin-bottom: 5rem;
+        }
+        
+        .feature-card {
+            padding: 2rem;
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 1rem;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            text-align: center;
+            transition: transform 0.3s ease;
+        }
+        
+        .feature-card:hover {
+            transform: translateY(-5px);
+        }
+        
+        .feature-icon {
+            width: 4rem;
+            height: 4rem;
+            background: linear-gradient(45deg, #06b6d4, #8b5cf6);
+            border-radius: 1rem;
+            margin: 0 auto 1rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+        }
+        
+        .demo-section {
+            background: rgba(6, 182, 212, 0.1);
+            border: 1px solid rgba(6, 182, 212, 0.3);
+            border-radius: 1rem;
+            padding: 3rem;
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+        
+        .demo-accounts {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1rem;
+            margin: 2rem 0;
+        }
+        
+        .demo-account {
+            padding: 1rem;
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 0.5rem;
+        }
+        
+        .footer {
+            text-align: center;
+            padding: 3rem 0;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            color: #94a3b8;
+        }
+        
+        @media (max-width: 768px) {
+            .buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .btn {
+                width: 100%;
+                max-width: 300px;
+                justify-content: center;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- Navigation -->
+        <nav class="nav">
+            <div class="logo">
+                <div class="logo-icon">✨</div>
+                <span class="gradient-text">CrediMatch</span>
+            </div>
+            <div>
+                <a href="#demo" class="btn btn-secondary" style="padding: 0.5rem 1rem; font-size: 1rem;">Try Demo</a>
+            </div>
+        </nav>
+
+        <!-- Hero Section -->
+        <section class="hero">
+            <h1>
+                <span class="gradient-text">AI-Powered</span><br>
+                <span>Freelancer Hiring OS</span>
+            </h1>
+            <p>
+                Next-generation platform where AI handles matching, trust analysis, 
+                behavior profiling, negotiation, and smart contracts. No more guesswork.
+            </p>
+            
+            <div class="buttons">
+                <a href="#demo" class="btn btn-primary">
+                    I Need Talent →
+                </a>
+                <a href="#demo" class="btn btn-secondary">
+                    I'm a Freelancer →
+                </a>
+            </div>
+        </section>
+
+        <!-- Stats -->
+        <section class="stats">
+            <div class="stat-card">
+                <div class="stat-value gradient-text">95%</div>
+                <div class="stat-label">AI Match Accuracy</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-value gradient-text">2.3hrs</div>
+                <div class="stat-label">Average Response Time</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-value gradient-text">98%</div>
+                <div class="stat-label">Trust Score Accuracy</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-value gradient-text">50K+</div>
+                <div class="stat-label">Global Talent Pool</div>
+            </div>
+        </section>
+
+        <!-- Features -->
+        <section>
+            <h2 style="text-align: center; font-size: 3rem; margin-bottom: 3rem;" class="gradient-text">
+                Unique AI Features
+            </h2>
+            
+            <div class="features">
+                <div class="feature-card">
+                    <div class="feature-icon">🧠</div>
+                    <h3 style="font-size: 1.25rem; margin-bottom: 1rem;">AI Workstyle DNA</h3>
+                    <p style="color: #94a3b8;">Deep behavioral analysis creates unique freelancer profiles</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">⚡</div>
+                    <h3 style="font-size: 1.25rem; margin-bottom: 1rem;">Smart Matching</h3>
+                    <p style="color: #94a3b8;">95% accuracy in freelancer-project compatibility</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">🛡️</div>
+                    <h3 style="font-size: 1.25rem; margin-bottom: 1rem;">Trust & Safety</h3>
+                    <p style="color: #94a3b8;">AI-powered fraud detection and verification system</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">🤝</div>
+                    <h3 style="font-size: 1.25rem; margin-bottom: 1rem;">Auto Negotiation</h3>
+                    <p style="color: #94a3b8;">AI mediates pricing and timeline discussions</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Demo Section -->
+        <section id="demo" class="demo-section">
+            <h2 style="color: #06b6d4; margin-bottom: 1rem; font-size: 2.5rem;">🎯 Try CrediMatch Now</h2>
+            <p style="color: #94a3b8; font-size: 1.1rem; margin-bottom: 2rem;">
+                Experience the future of AI-powered hiring with demo accounts
+            </p>
+            
+            <div class="demo-accounts">
+                <div class="demo-account">
+                    <strong>Client Demo:</strong><br>
+                    client@demo.com / password
+                </div>
+                <div class="demo-account">
+                    <strong>Freelancer Demo:</strong><br>
+                    freelancer@demo.com / password
+                </div>
+            </div>
+            
+            <div class="buttons">
+                <a href="https://github.com/shresthpandey2004-jpg/cred" class="btn btn-primary" target="_blank">
+                    View Source Code
+                </a>
+                <a href="#" class="btn btn-secondary" onclick="alert('Demo: This would redirect to the full platform!')">
+                    Launch Platform
+                </a>
+            </div>
+        </section>
+
+        <!-- Footer -->
+        <footer class="footer">
+            <div class="logo" style="justify-content: center; margin-bottom: 1rem;">
+                <div class="logo-icon" style="width: 1.5rem; height: 1.5rem;">✨</div>
+                <span class="gradient-text">CrediMatch</span>
+            </div>
+            <p>© 2024 CrediMatch. AI-Powered Freelancer Hiring OS.</p>
+        </footer>
+    </div>
+
+    <script>
+        // Add some interactivity
+        document.querySelectorAll('.feature-card').forEach(card => {
+            card.addEventListener('mouseenter', () => {
+                card.style.boxShadow = '0 20px 40px rgba(6, 182, 212, 0.2)';
+            });
+            card.addEventListener('mouseleave', () => {
+                card.style.boxShadow = 'none';
+            });
+        });
+
+        // Smooth scrolling
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+    </script>
+</body>
+</html>
