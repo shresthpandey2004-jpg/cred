@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://cred.vercel.app/sitemap.xml
