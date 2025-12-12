@@ -1,220 +1,350 @@
 'use client'
 
-import { motion } from 'framer-motion'
-import { ArrowRight, Sparkles, Brain, Shield, Zap, Globe, Users, TrendingUp } from 'lucide-react'
-import { Button } from '@/components/ui/button'
-import { Card } from '@/components/ui/card'
 import Link from 'next/link'
 
 export default function HomePage() {
   const features = [
     {
-      icon: Brain,
       title: "AI Workstyle DNA",
-      description: "Deep behavioral analysis creates unique freelancer profiles",
-      color: "from-purple-400 to-pink-400"
+      description: "Deep behavioral analysis creates unique freelancer profiles"
     },
     {
-      icon: Zap,
-      title: "Smart Matching",
-      description: "95% accuracy in freelancer-project compatibility",
-      color: "from-cyan-400 to-blue-400"
+      title: "Smart Matching", 
+      description: "95% accuracy in freelancer-project compatibility"
     },
     {
-      icon: Shield,
       title: "Trust & Safety",
-      description: "AI-powered fraud detection and verification system",
-      color: "from-green-400 to-emerald-400"
+      description: "AI-powered fraud detection and verification system"
     },
     {
-      icon: Users,
       title: "Auto Negotiation",
-      description: "AI mediates pricing and timeline discussions",
-      color: "from-orange-400 to-red-400"
+      description: "AI mediates pricing and timeline discussions"
     }
   ]
 
   const stats = [
-    { label: "AI Match Accuracy", value: "95%", icon: TrendingUp },
-    { label: "Average Response Time", value: "2.3hrs", icon: Zap },
-    { label: "Trust Score Accuracy", value: "98%", icon: Shield },
-    { label: "Global Talent Pool", value: "50K+", icon: Globe }
+    { label: "AI Match Accuracy", value: "95%" },
+    { label: "Average Response Time", value: "2.3hrs" },
+    { label: "Trust Score Accuracy", value: "98%" },
+    { label: "Global Talent Pool", value: "50K+" }
   ]
 
   return (
-    <div className="min-h-screen">
+    <div style={{ 
+      minHeight: '100vh',
+      background: 'linear-gradient(135deg, #0f0f23 0%, #1a1a2e 50%, #16213e 100%)',
+      color: 'white',
+      fontFamily: 'system-ui, -apple-system, sans-serif'
+    }}>
       {/* Navigation */}
-      <motion.nav
-        initial={{ opacity: 0, y: -20 }}
-        animate={{ opacity: 1, y: 0 }}
-        className="fixed top-0 left-0 right-0 z-50 glass-card border-b border-white/10"
-      >
-        <div className="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
-          <div className="flex items-center gap-2">
-            <div className="w-8 h-8 bg-gradient-to-r from-cyan-400 to-purple-400 rounded-lg flex items-center justify-center">
-              <Sparkles className="w-5 h-5 text-white" />
-            </div>
-            <span className="text-xl font-bold gradient-text">CrediMatch</span>
+      <nav style={{ 
+        position: 'fixed',
+        top: 0,
+        left: 0,
+        right: 0,
+        zIndex: 50,
+        background: 'rgba(255, 255, 255, 0.05)',
+        backdropFilter: 'blur(10px)',
+        borderBottom: '1px solid rgba(255, 255, 255, 0.1)'
+      }}>
+        <div style={{ 
+          maxWidth: '1200px',
+          margin: '0 auto',
+          padding: '1rem 2rem',
+          display: 'flex',
+          justifyContent: 'space-between',
+          alignItems: 'center'
+        }}>
+          <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
+            <div style={{
+              width: '2rem',
+              height: '2rem',
+              background: 'linear-gradient(45deg, #06b6d4, #8b5cf6)',
+              borderRadius: '0.5rem',
+              display: 'flex',
+              alignItems: 'center',
+              justifyContent: 'center'
+            }}>✨</div>
+            <span style={{ 
+              fontSize: '1.25rem', 
+              fontWeight: 'bold',
+              background: 'linear-gradient(45deg, #06b6d4, #8b5cf6, #ec4899)',
+              WebkitBackgroundClip: 'text',
+              WebkitTextFillColor: 'transparent'
+            }}>CrediMatch</span>
           </div>
           
-          <div className="flex items-center gap-4">
-            <Link href="/auth/login">
-              <Button variant="ghost" size="sm">Login</Button>
-            </Link>
-            <Link href="/auth/signup">
-              <Button variant="neon" size="sm">Get Started</Button>
-            </Link>
+          <div style={{ display: 'flex', gap: '1rem' }}>
+            <Link href="/auth/login" style={{
+              padding: '0.5rem 1rem',
+              background: 'transparent',
+              border: '1px solid rgba(255, 255, 255, 0.2)',
+              color: 'white',
+              textDecoration: 'none',
+              borderRadius: '0.5rem'
+            }}>Login</Link>
+            <Link href="/auth/signup" style={{
+              padding: '0.5rem 1rem',
+              background: 'linear-gradient(45deg, #06b6d4, #8b5cf6)',
+              border: 'none',
+              color: 'white',
+              textDecoration: 'none',
+              borderRadius: '0.5rem'
+            }}>Get Started</Link>
           </div>
         </div>
-      </motion.nav>
+      </nav>
 
       {/* Hero Section */}
-      <section className="pt-32 pb-20 px-6">
-        <div className="max-w-7xl mx-auto text-center">
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8 }}
-            className="mb-8"
-          >
-            <h1 className="text-6xl md:text-8xl font-bold mb-6">
-              <span className="gradient-text">AI-Powered</span>
-              <br />
-              <span className="text-white">Freelancer Hiring OS</span>
-            </h1>
-            <p className="text-xl text-gray-400 max-w-3xl mx-auto mb-8">
-              Next-generation platform where AI handles matching, trust analysis, 
-              behavior profiling, negotiation, and smart contracts. No more guesswork.
-            </p>
-          </motion.div>
-
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.3, duration: 0.6 }}
-            className="flex flex-col sm:flex-row gap-4 justify-center mb-16"
-          >
-            <Link href="/client/dashboard">
-              <Button variant="neon" size="xl" className="group">
-                I Need Talent
-                <ArrowRight className="w-5 h-5 ml-2 group-hover:translate-x-1 transition-transform" />
-              </Button>
+      <section style={{ paddingTop: '8rem', paddingBottom: '5rem', padding: '8rem 2rem 5rem' }}>
+        <div style={{ maxWidth: '1200px', margin: '0 auto', textAlign: 'center' }}>
+          <h1 style={{ 
+            fontSize: 'clamp(3rem, 8vw, 6rem)',
+            fontWeight: 'bold',
+            marginBottom: '2rem',
+            lineHeight: '1.1'
+          }}>
+            <span style={{
+              background: 'linear-gradient(45deg, #06b6d4, #8b5cf6, #ec4899)',
+              WebkitBackgroundClip: 'text',
+              WebkitTextFillColor: 'transparent'
+            }}>AI-Powered</span>
+            <br />
+            <span>Freelancer Hiring OS</span>
+          </h1>
+          <p style={{ 
+            fontSize: '1.25rem',
+            color: '#94a3b8',
+            maxWidth: '800px',
+            margin: '0 auto 3rem',
+            lineHeight: '1.6'
+          }}>
+            Next-generation platform where AI handles matching, trust analysis, 
+            behavior profiling, negotiation, and smart contracts. No more guesswork.
+          </p>
+          
+          <div style={{ 
+            display: 'flex',
+            gap: '1rem',
+            justifyContent: 'center',
+            marginBottom: '4rem',
+            flexWrap: 'wrap'
+          }}>
+            <Link href="/client/dashboard" style={{
+              padding: '1rem 2rem',
+              background: 'linear-gradient(45deg, #06b6d4, #8b5cf6)',
+              color: 'white',
+              textDecoration: 'none',
+              borderRadius: '1rem',
+              fontSize: '1.1rem',
+              fontWeight: 'bold',
+              display: 'inline-flex',
+              alignItems: 'center',
+              gap: '0.5rem'
+            }}>
+              I Need Talent →
             </Link>
-            <Link href="/freelancer/dashboard">
-              <Button variant="glass" size="xl" className="group">
-                I'm a Freelancer
-                <ArrowRight className="w-5 h-5 ml-2 group-hover:translate-x-1 transition-transform" />
-              </Button>
+            <Link href="/freelancer/dashboard" style={{
+              padding: '1rem 2rem',
+              background: 'rgba(255, 255, 255, 0.05)',
+              color: 'white',
+              textDecoration: 'none',
+              border: '1px solid rgba(255, 255, 255, 0.2)',
+              borderRadius: '1rem',
+              fontSize: '1.1rem',
+              fontWeight: 'bold',
+              display: 'inline-flex',
+              alignItems: 'center',
+              gap: '0.5rem'
+            }}>
+              I&apos;m a Freelancer →
             </Link>
-          </motion.div>
+          </div>
 
           {/* Stats */}
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.5, duration: 0.8 }}
-            className="grid grid-cols-2 md:grid-cols-4 gap-6 mb-20"
-          >
+          <div style={{ 
+            display: 'grid',
+            gridTemplateColumns: 'repeat(auto-fit, minmax(200px, 1fr))',
+            gap: '2rem',
+            marginBottom: '5rem'
+          }}>
             {stats.map((stat, index) => (
-              <motion.div
-                key={stat.label}
-                initial={{ opacity: 0, scale: 0.8 }}
-                animate={{ opacity: 1, scale: 1 }}
-                transition={{ delay: 0.7 + index * 0.1 }}
-                className="glass-card p-6 text-center"
-              >
-                <stat.icon className="w-8 h-8 text-cyan-400 mx-auto mb-3" />
-                <div className="text-3xl font-bold gradient-text mb-2">{stat.value}</div>
-                <div className="text-sm text-gray-400">{stat.label}</div>
-              </motion.div>
+              <div key={index} style={{
+                padding: '2rem',
+                background: 'rgba(255, 255, 255, 0.05)',
+                borderRadius: '1rem',
+                border: '1px solid rgba(255, 255, 255, 0.1)',
+                textAlign: 'center'
+              }}>
+                <div style={{ 
+                  fontSize: '2rem',
+                  fontWeight: 'bold',
+                  background: 'linear-gradient(45deg, #06b6d4, #8b5cf6)',
+                  WebkitBackgroundClip: 'text',
+                  WebkitTextFillColor: 'transparent',
+                  marginBottom: '0.5rem'
+                }}>{stat.value}</div>
+                <div style={{ fontSize: '0.9rem', color: '#94a3b8' }}>{stat.label}</div>
+              </div>
             ))}
-          </motion.div>
+          </div>
         </div>
       </section>
 
       {/* Features Section */}
-      <section className="py-20 px-6">
-        <div className="max-w-7xl mx-auto">
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8 }}
-            className="text-center mb-16"
-          >
-            <h2 className="text-5xl font-bold gradient-text mb-6">
+      <section style={{ padding: '5rem 2rem' }}>
+        <div style={{ maxWidth: '1200px', margin: '0 auto' }}>
+          <div style={{ textAlign: 'center', marginBottom: '4rem' }}>
+            <h2 style={{ 
+              fontSize: '3rem',
+              fontWeight: 'bold',
+              background: 'linear-gradient(45deg, #06b6d4, #8b5cf6)',
+              WebkitBackgroundClip: 'text',
+              WebkitTextFillColor: 'transparent',
+              marginBottom: '1rem'
+            }}>
               Unique AI Features
             </h2>
-            <p className="text-xl text-gray-400 max-w-3xl mx-auto">
+            <p style={{ fontSize: '1.25rem', color: '#94a3b8' }}>
               Revolutionary AI capabilities that solve real freelancing problems
             </p>
-          </motion.div>
+          </div>
 
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+          <div style={{ 
+            display: 'grid',
+            gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))',
+            gap: '2rem'
+          }}>
             {features.map((feature, index) => (
-              <motion.div
-                key={feature.title}
-                initial={{ opacity: 0, y: 30 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                transition={{ delay: index * 0.2, duration: 0.6 }}
-                whileHover={{ y: -10, transition: { duration: 0.2 } }}
-              >
-                <Card className="p-6 h-full text-center group hover:shadow-2xl hover:shadow-cyan-500/20">
-                  <div className={`w-16 h-16 mx-auto mb-4 rounded-2xl bg-gradient-to-r ${feature.color} p-4 group-hover:scale-110 transition-transform duration-300`}>
-                    <feature.icon className="w-full h-full text-white" />
-                  </div>
-                  <h3 className="text-xl font-semibold text-white mb-3">{feature.title}</h3>
-                  <p className="text-gray-400">{feature.description}</p>
-                </Card>
-              </motion.div>
+              <div key={index} style={{
+                padding: '2rem',
+                background: 'rgba(255, 255, 255, 0.05)',
+                borderRadius: '1rem',
+                border: '1px solid rgba(255, 255, 255, 0.1)',
+                textAlign: 'center',
+                transition: 'transform 0.3s ease'
+              }}>
+                <div style={{
+                  width: '4rem',
+                  height: '4rem',
+                  background: 'linear-gradient(45deg, #06b6d4, #8b5cf6)',
+                  borderRadius: '1rem',
+                  margin: '0 auto 1rem',
+                  display: 'flex',
+                  alignItems: 'center',
+                  justifyContent: 'center',
+                  fontSize: '1.5rem'
+                }}>🤖</div>
+                <h3 style={{ 
+                  fontSize: '1.25rem',
+                  fontWeight: 'bold',
+                  marginBottom: '1rem'
+                }}>{feature.title}</h3>
+                <p style={{ color: '#94a3b8' }}>{feature.description}</p>
+              </div>
             ))}
           </div>
         </div>
       </section>
 
-      {/* CTA Section */}
-      <section className="py-20 px-6">
-        <div className="max-w-4xl mx-auto text-center">
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8 }}
-            className="glass-card p-12 neon-border"
-          >
-            <h2 className="text-4xl font-bold gradient-text mb-6">
-              Ready to Experience the Future?
+      {/* Demo Accounts */}
+      <section style={{ padding: '5rem 2rem' }}>
+        <div style={{ maxWidth: '800px', margin: '0 auto', textAlign: 'center' }}>
+          <div style={{
+            padding: '3rem',
+            background: 'rgba(255, 255, 255, 0.05)',
+            borderRadius: '1rem',
+            border: '1px solid rgba(6, 182, 212, 0.3)',
+            boxShadow: '0 0 30px rgba(6, 182, 212, 0.1)'
+          }}>
+            <h2 style={{ 
+              fontSize: '2.5rem',
+              fontWeight: 'bold',
+              background: 'linear-gradient(45deg, #06b6d4, #8b5cf6)',
+              WebkitBackgroundClip: 'text',
+              WebkitTextFillColor: 'transparent',
+              marginBottom: '1rem'
+            }}>
+              Try CrediMatch Now
             </h2>
-            <p className="text-xl text-gray-400 mb-8">
-              Join thousands of clients and freelancers using AI-powered hiring
+            <p style={{ fontSize: '1.1rem', color: '#94a3b8', marginBottom: '2rem' }}>
+              Experience the future of AI-powered hiring with demo accounts
             </p>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Link href="/skill-heatmap">
-                <Button variant="neon" size="lg">
-                  Explore 3D Skill Map
-                </Button>
+            
+            <div style={{ 
+              display: 'grid',
+              gridTemplateColumns: 'repeat(auto-fit, minmax(250px, 1fr))',
+              gap: '1rem',
+              marginBottom: '2rem'
+            }}>
+              <div style={{
+                padding: '1rem',
+                background: 'rgba(255, 255, 255, 0.05)',
+                borderRadius: '0.5rem'
+              }}>
+                <strong>Client Demo:</strong><br />
+                client@demo.com / password
+              </div>
+              <div style={{
+                padding: '1rem',
+                background: 'rgba(255, 255, 255, 0.05)',
+                borderRadius: '0.5rem'
+              }}>
+                <strong>Freelancer Demo:</strong><br />
+                freelancer@demo.com / password
+              </div>
+            </div>
+            
+            <div style={{ display: 'flex', gap: '1rem', justifyContent: 'center', flexWrap: 'wrap' }}>
+              <Link href="/skill-heatmap" style={{
+                padding: '1rem 2rem',
+                background: 'linear-gradient(45deg, #06b6d4, #8b5cf6)',
+                color: 'white',
+                textDecoration: 'none',
+                borderRadius: '0.5rem',
+                fontWeight: 'bold'
+              }}>
+                Explore 3D Skill Map
               </Link>
-              <Link href="/auth/signup">
-                <Button variant="glass" size="lg">
-                  Start Free Trial
-                </Button>
+              <Link href="/auth/login" style={{
+                padding: '1rem 2rem',
+                background: 'rgba(255, 255, 255, 0.05)',
+                color: 'white',
+                textDecoration: 'none',
+                border: '1px solid rgba(255, 255, 255, 0.2)',
+                borderRadius: '0.5rem',
+                fontWeight: 'bold'
+              }}>
+                Login to Demo
               </Link>
             </div>
-          </motion.div>
+          </div>
         </div>
       </section>
 
       {/* Footer */}
-      <footer className="py-12 px-6 border-t border-white/10">
-        <div className="max-w-7xl mx-auto text-center">
-          <div className="flex items-center justify-center gap-2 mb-4">
-            <div className="w-6 h-6 bg-gradient-to-r from-cyan-400 to-purple-400 rounded-lg flex items-center justify-center">
-              <Sparkles className="w-4 h-4 text-white" />
-            </div>
-            <span className="text-lg font-bold gradient-text">CrediMatch</span>
-          </div>
-          <p className="text-gray-400">
-            © 2024 CrediMatch. AI-Powered Freelancer Hiring OS.
-          </p>
+      <footer style={{ 
+        padding: '3rem 2rem',
+        borderTop: '1px solid rgba(255, 255, 255, 0.1)',
+        textAlign: 'center'
+      }}>
+        <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '0.5rem', marginBottom: '1rem' }}>
+          <div style={{
+            width: '1.5rem',
+            height: '1.5rem',
+            background: 'linear-gradient(45deg, #06b6d4, #8b5cf6)',
+            borderRadius: '0.25rem'
+          }}>✨</div>
+          <span style={{ 
+            fontWeight: 'bold',
+            background: 'linear-gradient(45deg, #06b6d4, #8b5cf6)',
+            WebkitBackgroundClip: 'text',
+            WebkitTextFillColor: 'transparent'
+          }}>CrediMatch</span>
         </div>
+        <p style={{ color: '#94a3b8' }}>
+          © 2024 CrediMatch. AI-Powered Freelancer Hiring OS.
+        </p>
       </footer>
     </div>
   )
